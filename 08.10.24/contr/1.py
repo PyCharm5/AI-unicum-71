@@ -1,9 +1,9 @@
-mass = input().split(" ")
-mass = [int(x) for x in mass]
+mass = input().split(" ") #Ввод списка
+mass = [int(x) for x in mass] #Перевод значений в числа
 summ = 0
 
-for el in mass:
-    if el > 0:
-        summ += el
+for el in mass: #Перебор элементов
+    if el > 0: #Проверка на положительность
+        summ += el #Прибавление
 
-print(summ)
+print(summ) #Вывод суммы
