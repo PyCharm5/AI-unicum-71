@@ -1,5 +1,5 @@
-numb = int(input("Введите число:   "))
-start = int(input("Введите начало:   "))
-finish = int(input("Введите конец:   "))
+numb = int(input("Введите число:   ")) #Ввод числа для поиска
+start = int(input("Введите начало:   ")) #Ввод начала поиска
+finish = int(input("Введите конец:   ")) #Ввод конца поиска
 
-print(numb in range(start, finish + 1))
+print(numb in range(start, finish + 1)) #Проверка нахождения числа в промежутке
