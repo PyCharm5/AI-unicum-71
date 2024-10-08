@@ -3,3 +3,6 @@ start = int(input("Введите начало:   ")) #Ввод начала п�
 finish = int(input("Введите конец:   ")) #Ввод конца поиска
 
 print(numb in range(start, finish + 1)) #Проверка нахождения числа в промежутке
+
+if (numb >= start) and (numb <= finish): print(True)
+else: print(False)
