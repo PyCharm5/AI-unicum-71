@@ -11,6 +11,5 @@ def count(numb, lst_numb):
     else:
         lst_numb *= 2  # след. степень двойки
         count(numb, lst_numb)  # рекурсия
-
-count(numb, lst_numb)
-print(result)
+    return result
+print(count(numb, lst_numb))
