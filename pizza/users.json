@@ -1,0 +1,22 @@
+{
+    "user1": {
+        "password": "password1",
+        "age": 25
+    },
+    "user2": {
+        "password": "password2",
+        "age": 18
+    },
+    "user3": {
+        "password": "password3",
+        "age": 12
+    },
+    "user4": {
+        "password": "password4",
+        "age": 9
+    },
+    "user5": {
+        "password": "password5",
+        "age": 56
+    }
+}
