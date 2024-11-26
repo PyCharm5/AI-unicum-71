@@ -25,7 +25,7 @@ def register_user(username, password, age):
     with open('users.json', 'w') as file:
         json.dump(user_data, file)
 
-    log.write(f'{user_data[username]} - регистрация')
+    log.write(f'{user_data[username]} - регистрация\n')
     print("Пользователь зарегистрирован.")
     return True
 
@@ -40,7 +40,7 @@ def login_user(username, password):
     # Проверка данных пользователя
     if username in user_data and user_data[username]["password"] == password:
         print("Вход выполнен успешно.")
-        log.write(f'{user_data[username]} - вход')
+        log.write(f'{user_data[username]} - вход\n')
         print(f"Возраст пользователя: {user_data[username]['age']}")
         return True
     else:
