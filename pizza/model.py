@@ -42,7 +42,7 @@ def choose_items(menu, age):
                     else:
                         total_price += item['price']
                         print(f"Вы добавили {item['name']} к заказу.")
-                        log.write(f'{item["name"]} - добавлено в корзину')
+                        log.write(f'{item["name"]} - добавлено в корзину\n')
                     break
             if found:
                 break
