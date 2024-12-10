@@ -1,6 +1,8 @@
 import json
 
 log = open("log.txt", 'w', encoding='utf-8')
+rest_menu = open('menu.json', 'r')
+chek = open('chek.txt', 'w')
 
 def is_valid_age(age):
     return age.isdigit() and int(age) > 0
@@ -46,3 +48,19 @@ def login_user(username, password):
     else:
         print("Неверное имя пользователя или пароль.")
         return False
+
+def do_chek(mass, schet, enter):
+    print(mass)
+    mass.append("="*30)
+    mass.append("Ваш чек:")
+    mass = mass[2:]
+    for eat in set(mass):
+        mass.append(f"{eat}: {None} руб. Х {mass.count(eat)} шт.")
+    mass.append(f"Итого к оплате: {schet} руб.")
+    mass.append(f"Внесено: {enter} руб.")
+    mass.append(f"Сдача: {enter - schet} руб.")
+    mass.append("=" * 30)
+    print(mass)
+    return mass
+
+

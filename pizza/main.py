@@ -1,6 +1,6 @@
 import json
-from controller import register_user, login_user, is_valid_age
-from model import load_menu, display_menu, choose_items
+from controller import register_user, login_user, is_valid_age, do_chek
+from model import load_menu, display_menu, choose_items, choose_additives
 from view import price_print
 
 
@@ -9,7 +9,9 @@ if __name__ == "__main__":
     username = input("Введите имя пользователя: ")
     password = input("Введите пароль: ")
     menu = open('menu.json', 'r')
+    menu_additives = open('additives.json', 'r')
     users = open('users.json', 'r')
+    chek = open('chek.txt', 'w', encoding='utf-8')
 
 
     if action == 'register':
@@ -33,6 +35,12 @@ if __name__ == "__main__":
     display_menu(menu)
 
     # Выбор позиций из меню
-    total_price = choose_items(menu, age)
+    mass_eats = []
+    total_price = choose_items(menu, age, mass_eats)
+    total_price += choose_additives(mass_eats, total_price)
 
-    price_print(total_price)
+    #do_chek(mass_eats, total_price, int(input("Введите внесённую сумму:  ")))
+
+    price_print(total_price, mass_eats, do_chek(mass_eats, total_price, int(input("Введите внесённую сумму:  "))))
+
+
