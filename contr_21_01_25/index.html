@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Задача 1</h1>
+    <pre>"""Уровень С Сложный"""
+import random
+import time
+
+lst = [random.randint(1, 1000) for _ in range(10000)]
+start_time = time.time()
+end_time = time.time()
+elapsed_time = end_time - start_time
+
+def time_measuring(func):
+    def wrapper(lst):
+        start_time = time.time()
+        res = func(lst)
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(elapsed_time)
+        return res
+    return wrapper
+
+@time_measuring
+def p_sort(lst):
+
+    for n in range(len(lst) - 1, 0, -1):
+        swapped = False
+        for i in range(n):
+            if lst[i] > lst[i + 1]:
+                lst[i], lst[i + 1] = lst[i + 1], lst[i]
+                swapped = True
+        if not swapped:
+            break
+
+    return lst
+
+@time_measuring
+def s_sort(lst):
+
+    lst.sort()
+
+    return lst
+
+p_sort(lst=lst.copy())
+s_sort(lst=lst.copy())
+
+"""
+Итого:
+Пузырьковая сортирока - ~8.026535749435425 сек на 10000 элементов
+.sort() - ~0.0009975433349609375 сек на 10000 элементов
+"""
+</pre>
+    <h1>Задача 2</h1>
+    <pre>"""Уровень С Сложный"""
+import random
+
+n = int(input())
+matrix = [[random.randint(1, 100) for j in range(n)] for i in range(n)]
+
+def print_matrix(matrix):
+    for row in matrix:
+        row = map(str, row)
+        print(" ".join(row))
+    print("\n")
+
+print_matrix(matrix)
+
+matrix.insert(0, matrix[-1])
+del matrix[-1]
+
+print_matrix(matrix)</pre>
+    <h1>Задача 3</h1>
+    <pre>"""Уровень С Сложный"""
+import random
+
+n = int(input())
+matrix = [[random.randint(1, 100) for j in range(n)] for i in range(n)]
+
+def sort_row(row): #Сортировка вставкой
+    for i in range(1, len(row)):
+        el = row[i]
+        i2 = i - 1
+        while i2 >= 0 and row[i2] > el:
+            row[i2 + 1] = row[i2]
+            i2 -= 1
+            row[i2 + 1] = el
+
+def tranpon(matrix):
+    result = []
+
+    for i in range(len(matrix)):
+        row = []
+        for j in range(len(matrix[0])):
+            row.append(matrix[j][i])
+        result.append(row)
+
+    return result
+
+def print_matrix(matrix):
+    for row in matrix:
+        row = map(str, row)
+        print(" ".join(row))
+    print("\n")
+
+print_matrix(matrix)
+
+matrix = tranpon(matrix).copy()
+for row in matrix:
+    sort_row(row)
+matrix = tranpon(matrix).copy()
+
+print_matrix(matrix)</pre>
+    <h1>Задача 4</h1>
+    <pre>"""Уровень С Сложный"""
+import random
+import time
+
+lst = [random.randint(1, 1000) for _ in range(10000)]
+start_time = time.time()
+end_time = time.time()
+elapsed_time = end_time - start_time
+
+def time_measuring(func):
+    def wrapper(lst):
+        start_time = time.time()
+        res = func(lst)
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(elapsed_time)
+        return res
+    return wrapper
+
+@time_measuring
+def p_sort(lst): #Перебор
+
+    max_el = 0
+    for el in lst:
+        if el > max_el:
+            max_el = el
+
+    print(max_el)
+    return lst
+
+@time_measuring
+def s_sort(lst): #Пузырьковая
+
+    for n in range(len(lst) - 1, 0, -1):
+        swapped = False
+        for i in range(n):
+            if lst[i] > lst[i + 1]:
+                lst[i], lst[i + 1] = lst[i + 1], lst[i]
+                swapped = True
+        if not swapped:
+            break
+
+    print(lst[-1])
+    return lst
+
+p_sort(lst=lst.copy())
+s_sort(lst=lst.copy())
+
+"""
+Итого:
+Пузырьковая сортирока - 7.839069843292236 сек на 10**4 элементов
+Перебор - 0.0009975433349609375 сек на 10**5 элементов
+"""
+</pre>
+</body>
+</html>
