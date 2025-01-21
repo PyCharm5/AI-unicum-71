@@ -1,6 +1,9 @@
 """Уровень С Сложный"""
 import random
 import time
+import psutil
+
+print(f"Память: {psutil.Process().memory_info().rss / 1024 ** 2:.2f} МБ")
 
 lst = [random.randint(1, 1000) for _ in range(10000)]
 start_time = time.time()
