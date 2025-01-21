@@ -1,5 +1,8 @@
 """Уровень С Сложный"""
 import random
+import psutil
+
+print(f"Память: {psutil.Process().memory_info().rss / 1024 ** 2:.2f} МБ")
 
 n = int(input())
 matrix = [[random.randint(1, 100) for j in range(n)] for i in range(n)]
