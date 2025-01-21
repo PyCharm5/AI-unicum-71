@@ -3,10 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            padding: 15px;
+            overflow: auto;
+        }
+    </style>
 </head>
 <body>
     <h1>Задача 1</h1>
-    <pre>"""Уровень С Сложный"""
+    <pre><code class="python">"""Уровень С Сложный"""
 import random
 import time
 import psutil
@@ -57,14 +72,14 @@ s_sort(lst=lst.copy())
 Пузырьковая сортирока - ~8.026535749435425 сек на 10000 элементов
 .sort() - ~0.0009975433349609375 сек на 10000 элементов
 """
-</pre>
+</code></pre>
     <h1>Задача 2</h1>
-    <pre>"""Уровень С Сложный"""
+    <pre><code class="python">"""Уровень С Сложный"""
 import random
 import psutil
 
 print(f"Память: {psutil.Process().memory_info().rss / 1024 ** 2:.2f} МБ")
-        
+
 n = int(input())
 matrix = [[random.randint(1, 100) for j in range(n)] for i in range(n)]
 
@@ -79,14 +94,14 @@ print_matrix(matrix)
 matrix.insert(0, matrix[-1])
 del matrix[-1]
 
-print_matrix(matrix)</pre>
+print_matrix(matrix)</code></pre>
     <h1>Задача 3</h1>
-    <pre>"""Уровень С Сложный"""
+    <pre><code class="python">"""Уровень С Сложный"""
 import random
 import psutil
 
 print(f"Память: {psutil.Process().memory_info().rss / 1024 ** 2:.2f} МБ")
-        
+
 n = int(input())
 matrix = [[random.randint(1, 100) for j in range(n)] for i in range(n)]
 
@@ -123,15 +138,15 @@ for row in matrix:
     sort_row(row)
 matrix = tranpon(matrix).copy()
 
-print_matrix(matrix)</pre>
+print_matrix(matrix)</code></pre>
     <h1>Задача 4</h1>
-    <pre>"""Уровень С Сложный"""
+    <pre><code class="python">"""Уровень С Сложный"""
 import random
 import time
 import psutil
 
 print(f"Память: {psutil.Process().memory_info().rss / 1024 ** 2:.2f} МБ")
-        
+
 lst = [random.randint(1, 1000) for _ in range(10000)]
 start_time = time.time()
 end_time = time.time()
@@ -181,6 +196,11 @@ s_sort(lst=lst.copy())
 Пузырьковая сортирока - 7.839069843292236 сек на 10**4 элементов
 Перебор - 0.0009975433349609375 сек на 10**5 элементов
 """
+    </code>
 </pre>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
 </body>
 </html>
