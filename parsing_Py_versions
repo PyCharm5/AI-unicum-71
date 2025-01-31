@@ -1,0 +1,11 @@
+from bs4 import BeautifulSoup
+import requests
+
+url = "https://www.python.org/downloads/"
+response = requests.get(url)
+print(response)
+
+bs = BeautifulSoup(response.text, "lxml")
+div = bs.find_all('ol', class_='list-row-container menu')
+for version in div:
+    print(version.text)
