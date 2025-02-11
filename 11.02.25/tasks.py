@@ -7,7 +7,7 @@ print(count_garlands(4, 4, 8))
 
 
 def count_teams(bandits, police, detective, person):
-    return factorial(bandits + police + detective + person) // (factorial(bandits) * factorial(police) * factorial(detective) * factorial(passersby))
+    return factorial(bandits + police + detective + person) // (factorial(bandits) * factorial(police) * factorial(detective) * factorial(person))
 print(count_teams(2, 2, 1, 5))
 
 
