@@ -1,6 +1,6 @@
 import time
 
-lst = list("AAB")
+lst = list("ТОПОТ")
 
 def time_measuring(func):
     def wrapper(lst):
@@ -67,14 +67,16 @@ def johnson_trotter(n):
         permutations = []
         for i in permutation:
             permutations.append(lst[i])
-        result.append(permutations)
+        result.append("".join(permutations))
 
     return result
 
 
-permutations_jhonson = johnson_trotter(len(lst))
+permutations_jhonson = list(johnson_trotter(len(lst)))[1:]
 
-permutations_nara = narayana_permutations(lst)
+permutations_nara = list(narayana_permutations(lst))
+for i in permutations_nara:
+    "".join(i)
 
 print(permutations_jhonson)
 print(permutations_nara)
