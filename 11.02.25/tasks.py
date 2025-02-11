@@ -6,8 +6,8 @@ def count_garlands(red, blue, yellow):
 print(count_garlands(4, 4, 8))
 
 
-def count_teams(bandits, police, detective, passersby):
-    return factorial(bandits + police + detective + passersby) // (factorial(bandits) * factorial(police) * factorial(detective) * factorial(passersby))
+def count_teams(bandits, police, detective, person):
+    return factorial(bandits + police + detective + person) // (factorial(bandits) * factorial(police) * factorial(detective) * factorial(passersby))
 print(count_teams(2, 2, 1, 5))
 
 
@@ -16,11 +16,11 @@ def count_beads(green, blue, red):
 print(count_beads(4, 5, 6))
 
 
-def count_fruits(apples, pears, oranges):
-    return factorial(apples + pears + oranges) // (factorial(apples) * factorial(pears) * factorial(oranges))
+def count_fruits(apples, fruit, oranges):
+    return factorial(apples + fruit + oranges) // (factorial(apples) * factorial(fruit) * factorial(oranges))
 print(count_fruits(2, 3, 4))
 
 
-def count_bracelets(emeralds, rubies, sapphires):
-    return factorial(emeralds + rubies + sapphires) // (factorial(emeralds) * factorial(rubies) * factorial(sapphires))
+def count_bracelets(emeralds, rubins, sapphires):
+    return factorial(emeralds + rubins + sapphires) // (factorial(emeralds) * factorial(rubins) * factorial(sapphires))
 print(count_bracelets(5, 6, 7))
