@@ -141,3 +141,4 @@ class Factory:
             raise ValueError("Неизвестный команды")
 
 user1 = Factory.create("shape", "cube", 5)
+print(user1.volume())
