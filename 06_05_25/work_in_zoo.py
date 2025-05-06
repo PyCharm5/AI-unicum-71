@@ -7,7 +7,7 @@ class App(Tk):
     def __init__(self):
         super().__init__()
         self.title("Задание")
-        self.geometry("1000x1000")
+        self.geometry("570x500")
         self.create_widgets()
 
     def create_widgets(self):
