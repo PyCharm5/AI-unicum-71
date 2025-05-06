@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
+
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -28,8 +29,8 @@ class App(tk.Tk):
         self.table_frame = tk.Frame(self)
         self.table_frame.pack(pady=5)
 
-        for i in range(3):
-            for j in range(3):
+        for i in range(30):
+            for j in range(30):
                 tk.Button(self.table_frame, text=f"Button {i},{j}").grid(row=i, column=j)
 
     def on_button1_click(self):
@@ -41,9 +42,9 @@ class App(tk.Tk):
     def show_name(self):
         name = self.entry.get()
         if name:
-            messagebox.showinfo("Имя и Фамилия", f"Ваше имя и фамилия: {name}")
+            messagebox.showinfo("Имя и Фамилия", f"Моё имя и фамилия: {name}")
+
 
 if __name__ == "__main__":
     app = App()
     app.mainloop()
-                            
