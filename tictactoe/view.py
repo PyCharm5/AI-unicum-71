@@ -1,24 +1,20 @@
 import tkinter as tk
-from typing import Callable, List, Optional, Tuple
 
 
 class TicTacToeView:
-    """Класс представления игры, отвечающий за отображение GUI"""
-
-    def __init__(self, root: tk.Tk):
+    def __init__(self, root):
         self.root = root
         self.root.title("Крестики-нолики")
 
-        self.cell_click_handler: Optional[Callable[[int, int], None]] = None
-        self.restart_handler: Optional[Callable[[], None]] = None
+        self.cell_click_handler = None
+        self.restart_handler = None
 
         self.create_widgets()
 
-    def create_widgets(self) -> None:
-        """Создать все виджеты интерфейса"""
-        self.buttons = [[None for _ in range(3)] for _ in range(3)]
-
+    def create_widgets(self):
+        self.buttons = []
         for row in range(3):
+            button_row = []
             for col in range(3):
                 button = tk.Button(
                     self.root,
@@ -29,7 +25,8 @@ class TicTacToeView:
                     command=lambda r=row, c=col: self.on_cell_click(r, c)
                 )
                 button.grid(row=row, column=col, padx=5, pady=5)
-                self.buttons[row][col] = button
+                button_row.append(button)
+            self.buttons.append(button_row)
 
         self.status_label = tk.Label(
             self.root,
@@ -46,39 +43,33 @@ class TicTacToeView:
         )
         self.restart_button.grid(row=4, column=0, columnspan=3, pady=10)
 
-    def on_cell_click(self, row: int, col: int) -> None:
-        """Обработчик клика по клетке"""
+    def on_cell_click(self, row, col):
         if self.cell_click_handler:
             self.cell_click_handler(row, col)
 
-    def on_restart_click(self) -> None:
-        """Обработчик клика по кнопке перезапуска"""
+    def on_restart_click(self):
         if self.restart_handler:
             self.restart_handler()
 
-    def update_board(self, board_state: List[List[Optional[str]]]) -> None:
-        """Обновить отображение доски"""
+    def update_board(self, board_state):
         for row in range(3):
             for col in range(3):
-                self.buttons[row][col].config(
-                    text=board_state[row][col] if board_state[row][col] else "",
-                    state="disabled" if board_state[row][col] else "normal"
-                )
+                text = board_state[row][col] if board_state[row][col] else ""
+                state = "disabled" if board_state[row][col] else "normal"
+                self.buttons[row][col].config(text=text, state=state)
 
-    def update_status(self, current_player: str, game_over: bool, winner: Optional[str]) -> None:
-        """Обновить статус игры"""
+    def update_status(self, current_player, game_over, winner):
         if game_over:
             if winner:
-                self.status_label.config(text=f"Победил: {winner}!")
+                text = f"Победил: {winner}!"
             else:
-                self.status_label.config(text="Ничья!")
+                text = "Ничья!"
         else:
-            self.status_label.config(text=f"Ход: {current_player}")
+            text = f"Ход: {current_player}"
+        self.status_label.config(text=text)
 
-    def set_cell_click_handler(self, handler: Callable[[int, int], None]) -> None:
-        """Установить обработчик клика по клетке"""
+    def set_cell_click_handler(self, handler):
         self.cell_click_handler = handler
 
-    def set_restart_handler(self, handler: Callable[[], None]) -> None:
-        """Установить обработчик перезапуска игры"""
+    def set_restart_handler(self, handler):
         self.restart_handler = handler
